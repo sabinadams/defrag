@@ -1,8 +1,26 @@
+// Core Imports
+// ------------------------------------------------------------------------
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
+// Components
+// ------------------------------------------------------------------------
 import { AppComponent } from './app.component';
+
+// Modules
+// ------------------------------------------------------------------------
+
+// Services
+// ------------------------------------------------------------------------
+import { BaseService } from './shared/services/base-service';
+
+// Routing
+// ------------------------------------------------------------------------
+import { AppRoutingModule } from './app-routing.module';
+
+// Others
+// ------------------------------------------------------------------------
 
 @NgModule({
   declarations: [
@@ -10,9 +28,10 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [BaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
