@@ -2,7 +2,14 @@
 // ------------------------------------------------------------------------
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+// Http Interceptors
+// ------------------------------------------------------------------------
+import { AuthInterceptor } from './shared/http-interceptors/auth-interceptor';
+import { TimingInterceptor } from './shared/http-interceptors/request-timer-interceptor';
+import { ResponseInterceptor } from './shared/http-interceptors/response-interceptor';
 
 // Components
 // ------------------------------------------------------------------------
@@ -14,6 +21,7 @@ import { AppComponent } from './app.component';
 // Services
 // ------------------------------------------------------------------------
 import { BaseService } from './shared/services/base-service';
+import { AuthService } from './shared/services/auth-service';
 
 // Routing
 // ------------------------------------------------------------------------
@@ -29,9 +37,15 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule
   ],
-  providers: [BaseService],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
+    BaseService, AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
