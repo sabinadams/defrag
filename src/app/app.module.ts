@@ -7,9 +7,10 @@ import { FormsModule } from '@angular/forms';
 
 // Http Interceptors
 // ------------------------------------------------------------------------
-import { AuthInterceptor } from './shared/http-interceptors/auth-interceptor';
-import { TimingInterceptor } from './shared/http-interceptors/request-timer-interceptor';
-import { ResponseInterceptor } from './shared/http-interceptors/response-interceptor';
+import { AuthInterceptor } from './shared/interceptors/auth-interceptor';
+import { TimingInterceptor } from './shared/interceptors/request-timer-interceptor';
+import { ResponseInterceptor } from './shared/interceptors/response-interceptor';
+import { ProxyInterceptor } from './shared/interceptors/proxy-interceptor';
 
 // Components
 // ------------------------------------------------------------------------
@@ -42,6 +43,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
     BaseService, AuthService
