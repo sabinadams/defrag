@@ -7,13 +7,10 @@ import { AuthService } from './shared/services/auth-service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'gamr';
   constructor( private _authService: AuthService ) {}
 
   ngOnInit() {
-    this._authService.test().subscribe( res => {
-      console.log(res);
-    });
+    this._authService.test().subscribe(console.log);
   }
 
 }

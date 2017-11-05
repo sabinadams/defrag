@@ -1,3 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import './assets/_palette.scss';
+$med-break: 800px;
+$sm-break: 500px;
+$profile-panel-width: 250px;
+$chatbar-width: 85px;
+body {
+    margin: 0;
+}

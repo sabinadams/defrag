@@ -15,6 +15,7 @@ import { ProxyInterceptor } from './shared/interceptors/proxy-interceptor';
 // Components
 // ------------------------------------------------------------------------
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home';
 
 // Modules
 // ------------------------------------------------------------------------
@@ -33,7 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent, HomeComponent
   ],
   imports: [
     BrowserModule,

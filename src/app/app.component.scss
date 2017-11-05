@@ -1,0 +1,39 @@
+@import '../styles.scss';
+.site-grid {
+    display: flex;
+    flex-direction: row;
+    .col {
+        text-align: center;
+        height: 100vh;
+        overflow: hidden;
+        &.right {
+            background: red;
+            width: $chatbar-width;
+        }
+        &.left {
+            background: blue;
+            width: $profile-panel-width;
+        }
+        &.center {
+            background: green;
+            flex: 1;
+            .content {
+                display: relative;
+                overflow: scroll;
+                height: 100vh;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $med-break) {
+    .left {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: $sm-break) {
+    .right {
+        display: none;
+    }
+}
