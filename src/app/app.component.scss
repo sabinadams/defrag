@@ -5,20 +5,20 @@
     .col {
         text-align: center;
         height: 100vh;
-        overflow: hidden;
         &.right {
-            background: red;
+            border-left: 2px solid darken($primary-background, 5); // temp
+            padding: 0 10px; // temp
             width: $chatbar-width;
         }
         &.left {
-            background: blue;
+            border-right: 2px solid darken($primary-background, 5); // temp
+            padding: 0 10px; // temp
             width: $profile-panel-width;
         }
         &.center {
-            background: green;
             flex: 1;
-            .content {
-                display: relative;
+            .primary-content {
+                position: relative;
                 overflow: scroll;
                 height: 100vh;
             }

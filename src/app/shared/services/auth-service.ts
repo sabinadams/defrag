@@ -7,6 +7,6 @@ export class AuthService extends BaseService {
   constructor(private http: HttpClient) { super(); }
 
   public test() {
-      return this.http.get(`/example/getuser`);
+      return this.http.get<any>(`/example/getuser`);
   }
 }

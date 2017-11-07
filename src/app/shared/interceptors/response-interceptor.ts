@@ -14,6 +14,10 @@ export class ResponseInterceptor implements HttpInterceptor {
     
     intercept(req: HttpRequest<any>, next: HttpHandler ): Observable<HttpEvent<any>> {
         return next.handle(req).do( (event: HttpResponse<any>) => {}, (err: HttpErrorResponse) => {
+            /* 
+                Eliminate this switch statement and send to notification service
+                this._notificationService.errorMessage(message, statusCode , autoDismiss);    
+            */
             switch( err.status ) {
                 case 400:
                     // Handle 400 Bad Request
@@ -37,7 +41,7 @@ export class ResponseInterceptor implements HttpInterceptor {
                     // Handle 520 Unknown
                 break;
             }
-            console.log(`Error[${err.status}] ${err.statusText}`);
+            console.error(`Error[${err.status}] ${err.statusText}`);
             // Handle the message with the notification service
         });
     }

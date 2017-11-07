@@ -5,6 +5,16 @@ $med-break: 800px;
 $sm-break: 500px;
 $profile-panel-width: 250px;
 $chatbar-width: 85px;
+$default-font-family: 'Lato',
+sans-serif;
 body {
     margin: 0;
+    font-family: $default-font-family;
+    background: $primary-background;
+    color: $default-font-color;
+    height: 100%;
+    overflow: hidden;
+     ::-webkit-scrollbar {
+        display: none;
+    }
 }

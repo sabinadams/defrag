@@ -14,4 +14,5 @@ export class BaseService {
     public getToken(): string {
         return localStorage.getItem('token');
     }
+    
 }

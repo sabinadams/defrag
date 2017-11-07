@@ -8,7 +8,6 @@ import { AuthService } from './shared/services/auth-service';
 })
 export class AppComponent implements OnInit {
   constructor( private _authService: AuthService ) {}
-
   ngOnInit() {
     this._authService.test().subscribe(console.log);
   }

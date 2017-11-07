@@ -1,13 +1,16 @@
-<!-- Navbar -->
 <div class="site-grid">
+    <!-- Profile Panel Container-->
     <div class="col left" *ngIf="loggedin">
         <h2>Panel</h2>
     </div>
+    <!-- Body Container-->
     <div class="col center">
-        <div class="content">
+        <!-- Dynamic Content Container -->
+        <div class="primary-content">
             <router-outlet></router-outlet>
         </div>
     </div>
+    <!-- Chatbar Container -->
     <div class="col right" *ngIf="loggedin">
         <h2>Chatbar</h2>
     </div>
