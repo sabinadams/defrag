@@ -41,7 +41,7 @@ export class ResponseInterceptor implements HttpInterceptor {
                     // Handle 520 Unknown
                 break;
             }
-            console.error(`Error[${err.status}] ${err.statusText}`);
+            console.error(`Error[${err.status}] ${err.error.message}`);
             // Handle the message with the notification service
         });
     }
