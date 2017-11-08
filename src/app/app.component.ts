@@ -6,10 +6,10 @@ import { AuthService } from './shared/services/auth-service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
+// IMPORTANT: https://www.facebook.com/midnightpulp/videos/1763726663640085/
+
 export class AppComponent implements OnInit {
   constructor( private _authService: AuthService ) {}
-  ngOnInit() {
-    this._authService.test().subscribe(console.log);
-  }
-
+  ngOnInit() { this._authService.test().subscribe(console.log); }
 }
