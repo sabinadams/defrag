@@ -1,0 +1,28 @@
+@import '../../../../styles.scss';
+.navbar-container {
+    height: $navbar-height;
+    width: 100%;
+    border-bottom: $thick-dark-border;
+    @extend .flex-column;
+    .top-stuff {
+        padding-top: 5px;
+        flex: 1;
+        text-align: center;
+    }
+    .nav-options {
+        @extend .flex-row;
+        .nav-button {
+            margin-right: 30px;
+            align-self: flex-end;
+            padding: 8px;
+            &.active {
+                font-size: 18px;
+                border-bottom: 5px solid $default-font-color;
+            }
+            &:hover {
+                transition: font-size 300ms ease-in;
+                font-size: 18px;
+            }
+        }
+    }
+}

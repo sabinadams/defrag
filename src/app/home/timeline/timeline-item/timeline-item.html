@@ -1,0 +1,32 @@
+<div class="timeline-item">
+    <span class="dropdown-toggler">
+        <i class="fa fa-caret-down" aria-hidden="true"></i>
+    </span>
+    <div class="item-body">
+        <img class="profile-pic" src="http://placehold.it/100x100" alt="">
+        <div class="text-container">
+            <span class="header-info">
+            <p>
+                {{post.user.username}} 
+                @{{post.user.tag}}
+                {{post.creation_date | date}}
+            </p>
+            </span>
+            <p class="body-text">{{post.text}} {{post.ID}}</p><br>
+        </div>
+    </div>
+    <div class="post-info">
+        <div class="info-label">
+            <i class="fa fa-heart" aria-hidden="true"></i>
+            <p>12</p>
+        </div>
+        <div class="info-label">
+            <i class="fa fa-reply" aria-hidden="true"></i>
+            <p>14</p>
+        </div>
+        <div class="info-label">
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <p>199</p>
+        </div>
+    </div>
+</div>

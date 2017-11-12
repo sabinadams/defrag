@@ -5,13 +5,18 @@
     </div>
     <!-- Body Container-->
     <div class="col center">
-        <!-- Dynamic Content Container -->
-        <div class="primary-content">
-            <router-outlet></router-outlet>
+        <navbar *ngIf="loggedin"></navbar>
+        <div class="mid-grid">
+            <!-- Dynamic Content Container -->
+            <div class="site-body-container">
+                <div class="primary-content">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+            <!-- Chatbar Container -->
+            <div class="col right" *ngIf="loggedin">
+                <h2>Chatbar</h2>
+            </div>
         </div>
-    </div>
-    <!-- Chatbar Container -->
-    <div class="col right" *ngIf="loggedin">
-        <h2>Chatbar</h2>
     </div>
 </div>

@@ -1,0 +1,16 @@
+<div class="navbar-container">
+    <div class="top-stuff">
+        <p>Top Stuff</p>
+    </div>
+    <div class="nav-options">
+        <div class="nav-button" [ngClass]="currRoute == '/' ? 'active' : ''">
+            <p routerLink="">Home</p>
+        </div>
+        <div class="nav-button" [ngClass]="currRoute == '/news' ? 'active' : ''">
+            <p routerLink="news">News</p>
+        </div>
+        <div class="nav-button" [ngClass]="currRoute == '/hub' ? 'active' : ''">
+            <p routerLink="hub">Hub</p>
+        </div>
+    </div>
+</div>

@@ -15,10 +15,11 @@ import { ProxyInterceptor } from './shared/interceptors/proxy-interceptor';
 // Components
 // ------------------------------------------------------------------------
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home';
+import { NavbarComponent } from './shared/components/navbar/navbar';
 
 // Modules
 // ------------------------------------------------------------------------
+import { HomeModule } from './home/home-module';
 
 // Services
 // ------------------------------------------------------------------------
@@ -34,13 +35,14 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent, HomeComponent
+    AppComponent, NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    HomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

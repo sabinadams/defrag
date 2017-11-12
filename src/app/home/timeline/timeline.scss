@@ -1,0 +1,10 @@
+.timeline-container {
+    overflow: scroll;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 700px; // Remove if extra column on homepage
+    .timeline-item {
+        flex: 1;
+    }
+}

@@ -1,26 +1,33 @@
 @import '../styles.scss';
 .site-grid {
-    display: flex;
-    flex-direction: row;
+    @extend .flex-row;
     .col {
-        text-align: center;
         height: 100vh;
         &.right {
-            border-left: 2px solid darken($primary-background, 5); // temp
-            padding: 0 10px; // temp
+            text-align: center;
+            border-left: $thick-dark-border;
             width: $chatbar-width;
+            min-width: 85px;
         }
         &.left {
-            border-right: 2px solid darken($primary-background, 5); // temp
-            padding: 0 10px; // temp
+            text-align: center;
+            border-right: $thick-dark-border;
             width: $profile-panel-width;
+            min-width: 200px;
+            @extend .flex-column;
         }
         &.center {
             flex: 1;
-            .primary-content {
-                position: relative;
-                overflow: scroll;
-                height: 100vh;
+            @extend .flex-column;
+            .mid-grid {
+                @extend .flex-row;
+                .site-body-container {
+                    flex: 1;
+                    .primary-content {
+                        overflow: scroll;
+                        height: 100%;
+                    }
+                }
             }
         }
     }
@@ -28,12 +35,12 @@
 
 @media only screen and (max-width: $med-break) {
     .left {
-        display: none;
+        display: none !important;
     }
 }
 
 @media only screen and (max-width: $sm-break) {
     .right {
-        display: none;
+        display: none !important;
     }
 }
