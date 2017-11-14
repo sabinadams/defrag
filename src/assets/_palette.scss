@@ -2,7 +2,12 @@
 $default-font-color: rgb(207, 207, 228);
 $primary-background: rgb(45, 47, 56);
 $lighter-background: rgb(54, 56, 66);
+$darker-color: rgb(34, 35, 41);
+$thick-primary-border: 2px solid $primary-background;
+$thin-primary-border: 1px solid $primary-background;
 $thick-dark-border: 2px solid darken($primary-background, 5);
 $thin-dark-border: 1px solid darken($primary-background, 5);
 $thick-light-border: 2px solid lighten($lighter-background, 5);
 $thin-light-border: 1px solid lighten($lighter-background, 5);
+$thin-dark-border-opaque: 1px solid rgba(0, 0, 0, 0.15);
+$thick-dark-border-opaque: 2px solid rgba(0, 0, 0, 0.15);

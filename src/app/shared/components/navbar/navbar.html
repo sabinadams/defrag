@@ -1,16 +1,31 @@
 <div class="navbar-container">
-    <div class="top-stuff">
-        <p>Top Stuff</p>
+    <div class="top-stuff" *ngIf="showTop">
+        <div class="top-left">
+            <!-- Literally anything -_- -->
+        </div>
+        <div class="top-right">
+            <i class="fa fa-search" aria-hidden="true"></i>
+
+            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
+
+            <div class="top-tab active">
+                <p>Another Thing</p>
+            </div>
+            <div class="top-tab">
+                <p>Something</p>
+            </div>
+            <div class="top-tab">
+                <p>Post</p>
+            </div>
+        </div>
     </div>
     <div class="nav-options">
-        <div class="nav-button" [ngClass]="currRoute == '/' ? 'active' : ''">
-            <p routerLink="">Home</p>
+        <div *ngFor="let route of routes" class="nav-button" [ngClass]="currRoute == '/' + route.location ? 'active' : ''">
+            <p routerLink="{{route.location}}">{{route.label}} </p>
         </div>
-        <div class="nav-button" [ngClass]="currRoute == '/news' ? 'active' : ''">
-            <p routerLink="news">News</p>
-        </div>
-        <div class="nav-button" [ngClass]="currRoute == '/hub' ? 'active' : ''">
-            <p routerLink="hub">Hub</p>
+        <div class="bottom-right">
+            <i *ngIf="showTop" class="fa fa-chevron-up" (click)="toggleTop()" aria-hidden="true"></i>
+            <i *ngIf="!showTop" class="fa fa-chevron-down" (click)="toggleTop()" aria-hidden="true"></i>
         </div>
     </div>
 </div>

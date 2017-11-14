@@ -1,20 +1,47 @@
 @import '../../../../styles.scss';
 .navbar-container {
-    height: $navbar-height;
+    max-height: $navbar-height;
     width: 100%;
     border-bottom: $thick-dark-border;
+    flex-wrap: wrap;
     @extend .flex-column;
     .top-stuff {
-        padding-top: 5px;
         flex: 1;
-        text-align: center;
+        border-bottom: $thin-dark-border-opaque;
+        height: 100%;
+        .top-left {
+            float: left;
+        }
+        .top-right {
+            float: right;
+            @extend .flex-row;
+            height: 100%;
+            .fa {
+                line-height: 2;
+                font-size: 25px;
+                margin: 0 10px;
+            }
+            .top-tab {
+                background: $darker-color;
+                padding: 0 25px;
+                border-left: $thick-dark-border-opaque;
+                p {
+                    line-height: 3;
+                }
+                &.active {
+                    background: $lighter-background;
+                    margin: 0;
+                }
+                text-align: center;
+            }
+        }
     }
     .nav-options {
         @extend .flex-row;
         .nav-button {
             margin-right: 30px;
             align-self: flex-end;
-            padding: 8px;
+            padding: 0 8px 5px 8px;
             &.active {
                 font-size: 18px;
                 border-bottom: 5px solid $default-font-color;
@@ -24,5 +51,20 @@
                 font-size: 18px;
             }
         }
+        .bottom-right {
+            flex: 1;
+            align-self: flex-end;
+            text-align: right;
+            line-height: 1;
+            padding: 2px 8px 8px 8px;
+            font-size: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: $sm-break) {
+    .navbar-container {
+        // Should switch to diff navbar
+        display: none !important;
     }
 }
