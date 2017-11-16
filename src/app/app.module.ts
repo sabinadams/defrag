@@ -16,6 +16,7 @@ import { ProxyInterceptor } from './shared/interceptors/proxy-interceptor';
 // ------------------------------------------------------------------------
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar';
+import { AlertsComponent } from './shared/components/alerts/alerts';
 
 // Modules
 // ------------------------------------------------------------------------
@@ -25,6 +26,7 @@ import { HomeModule } from './home/home-module';
 // ------------------------------------------------------------------------
 import { BaseService } from './shared/services/base-service';
 import { AuthService } from './shared/services/auth-service';
+import { AlertService } from './shared/services/alert-service';
 
 // Routing
 // ------------------------------------------------------------------------
@@ -35,7 +37,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent
+    AppComponent, NavbarComponent, AlertsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +51,7 @@ import { AppRoutingModule } from './app-routing.module';
     { provide: HTTP_INTERCEPTORS, useClass: ProxyInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: TimingInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ResponseInterceptor, multi: true },
-    BaseService, AuthService
+    BaseService, AuthService, AlertService
   ],
   bootstrap: [AppComponent]
 })
