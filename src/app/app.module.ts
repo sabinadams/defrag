@@ -31,13 +31,14 @@ import { AlertService } from './shared/services/alert-service';
 // Routing
 // ------------------------------------------------------------------------
 import { AppRoutingModule } from './app-routing.module';
+import { ProfilepanelComponent } from './shared/profilepanel/profilepanel.component';
 
 // Others
 // ------------------------------------------------------------------------
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, AlertsComponent
+    AppComponent, NavbarComponent, AlertsComponent, ProfilepanelComponent
   ],
   imports: [
     BrowserModule,
