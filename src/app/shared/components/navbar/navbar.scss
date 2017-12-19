@@ -1,63 +1,56 @@
 @import '../../../../styles.scss';
-.navbar-container {
-    max-height: $navbar-height;
+.top-stuff {
+    flex-wrap: wrap;
+    height: $navbar-height;
     width: 100%;
     border-bottom: $thick-dark-border;
-    flex-wrap: wrap;
-    @extend .flex-column;
-    .top-stuff {
+    @extend .flex-row;
+    .top-left {
+        justify-content: flex-start;
         flex: 1;
-        border-bottom: $thin-dark-border-opaque;
-        height: 100%;
-        .top-left {
-            float: left;
+    }
+    .top-right {
+        justify-content: flex-end;
+        flex: 1;
+        @extend .flex-row;
+        .fa {
+            line-height: 2;
+            font-size: 25px;
+            margin: 0 10px;
         }
-        .top-right {
-            float: right;
-            @extend .flex-row;
-            height: 100%;
-            .fa {
-                line-height: 2;
-                font-size: 25px;
-                margin: 0 10px;
+        .top-tab {
+            background: $darker-color;
+            padding: 0 25px;
+            border-left: $thick-dark-border-opaque;
+            p {
+                line-height: 3;
             }
-            .top-tab {
-                background: $darker-color;
-                padding: 0 25px;
-                border-left: $thick-dark-border-opaque;
-                p {
-                    line-height: 3;
-                }
-                &.active {
-                    background: $lighter-background;
-                    margin: 0;
-                }
-                text-align: center;
+            &.active {
+                background: $lighter-background;
+                margin: 0;
             }
+            text-align: center;
         }
     }
-    .nav-options {
-        @extend .flex-row;
-        .nav-button {
-            margin-right: 30px;
-            align-self: flex-end;
-            padding: 0 8px 5px 8px;
-            &.active {
-                font-size: 18px;
-                border-bottom: 5px solid $default-font-color;
-            }
-            &:hover {
-                transition: font-size 300ms ease-in;
-                font-size: 18px;
-            }
+}
+
+.nav-options {
+    @extend .flex-row;
+    height: calc(100% - 20px);
+    padding: 10px;
+    .nav-button {
+        border-radius: 3px;
+        height: 100%;
+        margin-right: 30px;
+        align-self: flex-end;
+        padding: 0 8px 0 8px;
+        line-height: 30px;
+        &.active {
+            font-size: 18px;
         }
-        .bottom-right {
-            flex: 1;
-            align-self: flex-end;
-            text-align: right;
-            line-height: 1;
-            padding: 2px 8px 8px 8px;
-            font-size: 20px;
+        &:hover {
+            background: $lighter-background;
+            box-shadow: 0 0 1px darken($primary-background, 3);
         }
     }
 }

@@ -16,13 +16,6 @@
             width: $profile-panel-width;
             min-width: 200px;
             @extend .flex-column;
-            .nav-branding {
-                height: $navbar-height;
-                background: $lighter-background;
-                .logo {
-                    height: $navbar-height;
-                }
-            }
         }
         &.center {
             flex: 1;

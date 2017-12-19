@@ -12,6 +12,6 @@ export class TimelineComponent implements OnInit {
   feed_items: Observable<ITimelineItem[]>;
   constructor( private _timelineService: TimelineService ) {}
   ngOnInit() {
-    this.feed_items = this._timelineService.populateFeed(); 
+      this.feed_items = this._timelineService.populateFeed();     
   }
 }

@@ -12,6 +12,7 @@ import { FormsModule } from "@angular/forms";
 import { HomeComponent } from './home';
 import { TimelineComponent } from './timeline/timeline';
 import { TimelineItemComponent } from './timeline/timeline-item/timeline-item';
+
 // Modules
 // ------------------------------------------------------------------------
 
