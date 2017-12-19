@@ -17,6 +17,7 @@ import { ProxyInterceptor } from './shared/interceptors/proxy-interceptor';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar';
 import { AlertsComponent } from './shared/components/alerts/alerts';
+import { ProfilepanelComponent } from "./shared/components/profile-panel/profile-panel";
 
 // Modules
 // ------------------------------------------------------------------------
@@ -31,7 +32,6 @@ import { AlertService } from './shared/services/alert-service';
 // Routing
 // ------------------------------------------------------------------------
 import { AppRoutingModule } from './app-routing.module';
-import { ProfilepanelComponent } from './shared/profilepanel/profilepanel.component';
 
 // Others
 // ------------------------------------------------------------------------

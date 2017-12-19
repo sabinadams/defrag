@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'gamr-profilepanel',
-  templateUrl: './profilepanel.component.html',
-  styleUrls: ['./profilepanel.component.scss']
+  selector: 'profile-panel',
+  templateUrl: './profile-panel.html',
+  styleUrls: ['./profile-panel.scss']
 })
 export class ProfilepanelComponent implements OnInit {
 
