@@ -1,7 +1,11 @@
 <div class="navbar-container">
     <div class="top-stuff" *ngIf="showTop">
         <div class="top-left">
-            <!-- Literally anything -_- -->
+            <div class="nav-options">
+                <div *ngFor="let route of routes" class="nav-button" [ngClass]="currRoute == '/' + route.location ? 'active' : ''">
+                    <p routerLink="{{route.location}}">{{route.label}} </p>
+                </div>
+            </div>
         </div>
         <div class="top-right">
             <i class="fa fa-search" aria-hidden="true"></i>
@@ -18,14 +22,6 @@
                 <p>Post</p>
             </div>
         </div>
-    </div>
-    <div class="nav-options">
-        <div *ngFor="let route of routes" class="nav-button" [ngClass]="currRoute == '/' + route.location ? 'active' : ''">
-            <p routerLink="{{route.location}}">{{route.label}} </p>
-        </div>
-        <div class="bottom-right">
-            <i *ngIf="showTop" class="fa fa-chevron-up" (click)="toggleTop()" aria-hidden="true"></i>
-            <i *ngIf="!showTop" class="fa fa-chevron-down" (click)="toggleTop()" aria-hidden="true"></i>
-        </div>
+
     </div>
 </div>

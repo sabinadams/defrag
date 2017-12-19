@@ -9,8 +9,8 @@ import { IAlert } from "../../Models";
             <div *ngFor="let alert of alerts; let i = index;" 
                 class="alert"
                 [ngStyle]="{'background-color': alert.color}" 
-                (click)="remove(i)"
-            > {{alert.message}}
+                (click)="remove(i)"> 
+                {{alert.message}}
             </div>
         </div>
     `,

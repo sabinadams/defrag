@@ -4,9 +4,14 @@
     margin: 5px;
     min-width: 45%;
     background: $lighter-background;
+    padding: 5px;
+    &:hover {
+        transition: background 300ms ease-in;
+        background: darken($lighter-background, 0.7);
+    }
     .dropdown-toggler {
         float: right;
-        margin: 15px;
+        margin: 10px;
         width: 20px;
         text-align: center;
         height: 20px;
@@ -20,10 +25,6 @@
             margin: auto;
         }
     }
-    &:hover {
-        transition: background 300ms ease-in;
-        background: darken($lighter-background, 0.4);
-    }
     .profile-pic {
         border-radius: 50%;
         height: auto;
@@ -33,11 +34,24 @@
         min-width: 55px;
         min-height: 55px;
         margin-right: 15px;
+        &.small {
+            max-width: 35px;
+            max-height: 35px;
+            min-width: 35px;
+            min-height: 35px;
+            margin-left: 15px;
+        }
+        &.very-small {
+            max-width: 25px;
+            max-height: 25px;
+            min-width: 25px;
+            min-height: 25px;
+            margin: 0;
+        }
     }
     .item-body {
-        padding: 15px;
-        display: flex;
-        flex-direction: row;
+        padding: 10px;
+        @extend .flex-row;
         margin-bottom: 10px;
         .header-info {
             p {
@@ -50,20 +64,43 @@
             margin-top: 8px;
         }
     }
-    .post-info {
-        background: darken($lighter-background, 3);
-        display: flex;
-        padding: 5px 10px;
-        flex-direction: row;
+    .info-bar {
+        padding: 10px;
+        margin-top: 10px;
+        @extend .flex-row;
+        height: 20px;
+        flex: 1;
+        .info-bar-right {
+            flex: 1;
+            @extend .flex-row;
+            justify-content: flex-end;
+        }
         .info-label {
-            display: flex;
-            flex-direction: row;
-            margin-right: 30px;
+            @extend .flex-row;
+            margin-right: 20px;
             padding: 2px;
             p {
                 line-height: 15px;
                 margin: 0 0 0 5px;
             }
         }
+    }
+    .input-bar {
+        @extend .flex-row;
+        flex: 1;
+        padding-bottom: 10px;
+        .comment-input {
+            padding-left: 10px;
+            border-radius: 10px;
+            border: none;
+            flex: 1;
+            height: 30px;
+            background: $primary-background;
+        }
+    }
+    .commentors {
+        margin-bottom: 5px;
+        padding: 5px;
+        background: $darker-color;
     }
 }

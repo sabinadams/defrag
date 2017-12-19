@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import * as io from "socket.io-client";
+import { BehaviorSubject } from "rxjs/BehaviorSubject";
+import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: "gamr-root",
