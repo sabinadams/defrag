@@ -13,8 +13,8 @@ export class NavbarComponent {
         { label: 'Home', location: '' },
         // { label: 'Profile', location: 'profile' },
         { label: 'Discover', location: 'discover' },
-        { label: 'Games', location: 'games' },
-        { label: 'Shop', location: 'shop' }
+        { label: 'News', location: 'games' },
+        { label: 'Interact', location: 'shop' }
     ];
     constructor( private router: Router){}
 

@@ -87,15 +87,22 @@
     }
     .input-bar {
         @extend .flex-row;
-        flex: 1;
         padding-bottom: 10px;
-        .comment-input {
-            padding-left: 10px;
-            border-radius: 10px;
-            border: none;
+        .form {
+            display: flex;
             flex: 1;
-            height: 30px;
-            background: $primary-background;
+            padding: 10px;
+            .form-container {
+                border-radius: 10px;
+                border: $thick-dark-border;
+                padding: 10px;
+                &:focus {
+                    outline-width: 0 !important;
+                }
+            }
+        }
+        .profile-pic {
+            flex: 1;
         }
     }
     .commentors {
