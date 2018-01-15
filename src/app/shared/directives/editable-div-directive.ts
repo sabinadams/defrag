@@ -22,6 +22,7 @@ export class EditableDivDirective {
 
   ngOnInit() {
     this.renderer.setElementAttribute(this.el.nativeElement, 'contenteditable', 'true');
+    this.renderer.setElementClass(this.el.nativeElement, 'form-container', true);
     // If this was created with a populate event
     if (this.populateEvent) {
       // Populate all els in existence
@@ -38,28 +39,26 @@ export class EditableDivDirective {
   @HostListener("keyup", ["$event"])
   onKeyup(event) {
     // ************Currently assumes anything matching the description of a tag is a valid tag. Need to add validation of tags so it highlights valid users only
-    if (!(event.which <= 90 && event.which >= 48)) {
-      return;
-    }
+    if (!(event.keyCode <= 90 && event.keyCode >= 48)) { return; }
+  
 
     // Splits the current contents of el at each @mention
-    const values = this.el.nativeElement.innerText.split(
-      /(\B@[a-z0-9_-]+)/gi
-    );
+    const values = this.el.nativeElement.innerText.split(/(\B@[a-z0-9_-]+)/gi);
     let fullText = ``;
-    for (const value of values) {
-      // If was a mention, add an <a> tag with the mention, else add a span with the text
-      fullText += value.match(/\B@[a-z0-9_-]+/gi)
-        ? `<a class="mention">${value.trim()}</a>`
-        : `<span>${value}</span>`;
-      // Set the value of the form (a div) to have the dynamic HTML in fullText
-      this.el.nativeElement.innerHTML = fullText;
-      // Grabs the post form's reference by ID (so we can access DOM properties)
-
-      // Function that makes sure the cursor is at the end
-      this.setEndOfContenteditable(this.el.nativeElement);
-      // Trims spaces just in case
-      this.post.text = this.el.nativeElement.innerText.trim();
+      for (const value of values) {
+        // If was a mention, add a fake <a> tag with the mention, else add a span with the text
+        fullText += value.match(/\B@[a-z0-9_-]+/gi) && value.length <= 20
+          ? `<a class="mention">${value.trim()}</a>`
+          : `<span>${value}</span>`;
+  
+        // Set the value of the form (a div) to have the dynamic HTML in fullText
+        this.el.nativeElement.innerHTML = fullText;
+        // Grabs the post form's reference by ID (so we can access DOM properties)
+  
+        // Function that makes sure the cursor is at the end
+        this.setEndOfContenteditable(this.el.nativeElement);
+        // Trims spaces just in case
+        this.post.text = this.el.nativeElement.innerText.trim();
     }
   }
 

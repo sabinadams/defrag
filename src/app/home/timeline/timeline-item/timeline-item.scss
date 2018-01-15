@@ -88,19 +88,6 @@
     .input-bar {
         @extend .flex-row;
         padding-bottom: 10px;
-        .form {
-            display: flex;
-            flex: 1;
-            padding: 10px;
-            .form-container {
-                border-radius: 10px;
-                border: $thick-dark-border;
-                padding: 10px;
-                &:focus {
-                    outline-width: 0 !important;
-                }
-            }
-        }
         .profile-pic {
             flex: 1;
         }

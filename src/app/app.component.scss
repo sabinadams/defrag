@@ -6,15 +6,15 @@
         height: 100%;
         &.right {
             text-align: center;
-            border-left: $thick-dark-border;
             width: $chatbar-width;
             min-width: 85px;
+            border-left: $thin-dark-border;
         }
         &.left {
             text-align: center;
-            border-right: $thick-dark-border;
+            background-color: $darker-color;
             width: $profile-panel-width;
-            min-width: 200px;
+            min-width: 150px;
             @extend .flex-column;
         }
         &.center {

@@ -17,7 +17,6 @@ import { ProxyInterceptor } from './shared/interceptors/proxy-interceptor';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar';
 import { AlertsComponent } from './shared/components/alerts/alerts';
-
 // Modules
 // ------------------------------------------------------------------------
 import { HomeModule } from './home/home-module';

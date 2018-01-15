@@ -12,4 +12,8 @@ export class TimelineItemComponent implements OnInit {
   @Input() post: ITimelineItem;
   constructor( private _timelineService: TimelineService ) {}
   ngOnInit() {}
+
+  saveComment(e: any) {
+    console.log(e)
+  }
 }

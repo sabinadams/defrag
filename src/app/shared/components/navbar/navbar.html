@@ -1,27 +1,8 @@
 <div class="navbar-container">
-    <div class="top-stuff" *ngIf="showTop">
-        <div class="top-left">
-            <div class="nav-options">
-                <div *ngFor="let route of routes" class="nav-button" [ngClass]="currRoute == '/' + route.location ? 'active' : ''">
-                    <p routerLink="{{route.location}}">{{route.label}} </p>
-                </div>
-            </div>
+    <!-- <input placeholder="This is a test"> -->
+    <div class="routes">
+        <div *ngFor="let route of routes" class="nav-option" [ngClass]="currRoute == '/' + route.location ? 'active' : ''">
+            <p routerLink="{{route.location}}">{{route.label.substring(0,1)}} </p>
         </div>
-        <div class="top-right">
-            <i class="fa fa-search" aria-hidden="true"></i>
-
-            <i class="fa fa-dot-circle-o" aria-hidden="true"></i>
-
-            <div class="top-tab active">
-                <p>Another Thing</p>
-            </div>
-            <div class="top-tab">
-                <p>Something</p>
-            </div>
-            <div class="top-tab">
-                <p>Post</p>
-            </div>
-        </div>
-
     </div>
 </div>

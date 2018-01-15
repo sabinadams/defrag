@@ -4,9 +4,9 @@
 @import './assets/_classes.scss';
 $med-break: 800px;
 $sm-break: 500px;
-$profile-panel-width: 15%;
+$profile-panel-width: 200px;
 $chatbar-width: 15%;
-$navbar-height: 50px;
+$navbar-height: 65px;
 $default-font-family: 'Lato',
 sans-serif;
 html {
@@ -31,12 +31,20 @@ body {
     }
 }
 
-.mention {
-    color: rgba(149, 107, 185, 0.74) !important;
-    &:hover {
-        text-decoration: none;
-        opacity: 0.8;
+.form-container {
+    .mention {
+        color: rgba(149, 107, 185, 0.74) !important;
+        &:hover {
+            text-decoration: none;
+            opacity: 0.8;
+        }
+        cursor: pointer;
     }
-    cursor: pointer;
-    display:inline;
+    border-radius: 10px;
+    min-height: 20px;
+    border: $thick-dark-border;
+    padding: 10px;
+    &:focus {
+        outline-width: 0 !important;
+    }
 }
