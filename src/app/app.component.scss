@@ -6,7 +6,7 @@
     .left {
         width: $navbar-height * 2.5;
         @extend .flex-column;
-        background-color: #373e48;
+        background-color: $light-background;
     }
     .main {
         flex: 1;
@@ -17,7 +17,7 @@
             .secondary-panel {
                 width: $navbar-height * 2.5;
                 @extend .flex-column;
-                background: #2c343f;
+                background: $secondary-background;
                 height: 100%;
             }
             .center {
@@ -25,12 +25,12 @@
                 height: 100%;
                 overflow: scroll;
                 overflow-x: hidden;
-                margin-right: -$navbar-height * 2 - 20; // Screw
-                padding-right: $navbar-height * 2 + 20; // Firefox
+                margin-right: -$navbar-height * 1.5 - 17; // Screw
+                padding-right: $navbar-height * 1.5 + 17; // Firefox
             }   
             .right {
-                width: $navbar-height * 2;
-                background-color: #373e48;
+                width: $navbar-height * 1.5;
+                background-color: $light-background;
             }
         }
     }

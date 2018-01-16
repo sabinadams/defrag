@@ -1,100 +1,51 @@
 @import '../../../../styles.scss';
+$left-padding: 20px;
+$profile-pic-size: 80px;
 .timeline-item {
-    flex: 1;
-    margin: 5px;
-    min-width: 45%;
-    background: $lighter-background;
-    padding: 5px;
-    &:hover {
-        transition: background 300ms ease-in;
-        background: darken($lighter-background, 0.7);
-    }
-    .dropdown-toggler {
-        float: right;
-        margin: 10px;
-        width: 20px;
-        text-align: center;
-        height: 20px;
+    margin-top: 45px;
+    padding-left: 20px;
+    position: relative; 
+    .profile-picture-container {
         background: transparent;
-        border-radius: 50%;
-        cursor: pointer;
-        i {
-            display: inline-block;
-            height: 20px;
-            width: auto;
-            margin: auto;
+        position: absolute;
+        margin-top: -35px;
+        margin-left: -20px;
+        .profile-picture {
+            border-radius: 100%;
+            width: $profile-pic-size;
+            border: 8px solid $secondary-background;
         }
     }
-    .profile-pic {
-        border-radius: 50%;
-        height: auto;
-        width: auto;
-        max-width: 55px;
-        max-height: 55px;
-        min-width: 55px;
-        min-height: 55px;
-        margin-right: 15px;
-        &.small {
-            max-width: 35px;
-            max-height: 35px;
-            min-width: 35px;
-            min-height: 35px;
-            margin-left: 15px;
-        }
-        &.very-small {
-            max-width: 25px;
-            max-height: 25px;
-            min-width: 25px;
-            min-height: 25px;
-            margin: 0;
-        }
-    }
-    .item-body {
-        padding: 10px;
-        @extend .flex-row;
-        margin-bottom: 10px;
-        .header-info {
-            p {
-                margin: 0;
-                margin-right: 8px;
+    .item-contents {
+        padding: 20px;
+        margin: 5px; 
+        min-height: 200px;
+        background: $secondary-background; 
+        .content-container {
+            @extend .flex-column;
+            height: 100%;
+            .details {
+                height: $profile-pic-size / 2;
+                padding-left: $profile-pic-size / 2 + 20;
+            }
+            .content {
+                flex: 1;
+                @extend .flex-row;
+                .action-feed {
+                    @extend .flex-column;
+                    .activity-pic {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 100%;
+                        margin-bottom: 5px;
+                    }
+                }
+                .body {
+                    padding-left: 20px;
+                    flex: 1;
+                }
+
             }
         }
-        .body-text {
-            margin: 0;
-            margin-top: 8px;
-        }
-    }
-    .info-bar {
-        padding: 10px;
-        margin-top: 10px;
-        @extend .flex-row;
-        height: 20px;
-        flex: 1;
-        .info-bar-right {
-            flex: 1;
-            @extend .flex-row;
-            justify-content: flex-end;
-        }
-        .info-label {
-            @extend .flex-row;
-            margin-right: 20px;
-            padding: 2px;
-            p {
-                line-height: 15px;
-                margin: 0 0 0 5px;
-            }
-        }
-    }
-    .input-bar {
-        @extend .flex-row;
-        padding-bottom: 10px;
-        .profile-pic {
-            flex: 1;
-        }
-    }
-    .commentors {
-        margin-bottom: 5px;
-        padding: 5px;
-        background: $darker-color;
     }
 }
