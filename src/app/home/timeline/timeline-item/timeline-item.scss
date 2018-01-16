@@ -8,7 +8,7 @@ $profile-pic-size: 80px;
     .profile-picture-container {
         background: transparent;
         position: absolute;
-        margin-top: -35px;
+        margin-top: -30px;
         margin-left: -20px;
         .profile-picture {
             border-radius: 100%;
@@ -19,19 +19,20 @@ $profile-pic-size: 80px;
     .item-contents {
         padding: 20px;
         margin: 5px; 
-        min-height: 200px;
+        min-height: 100px;
         background: $secondary-background; 
         .content-container {
             @extend .flex-column;
             height: 100%;
             .details {
-                height: $profile-pic-size / 2;
+                height: $profile-pic-size / 2.5;
                 padding-left: $profile-pic-size / 2 + 20;
             }
             .content {
                 flex: 1;
                 @extend .flex-row;
                 .action-feed {
+                    padding-top: 15px;
                     @extend .flex-column;
                     .activity-pic {
                         width: 40px;

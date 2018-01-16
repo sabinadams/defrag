@@ -5,7 +5,7 @@
     <div class="item-contents">
         <div class="content-container">
             <div class="details">
-                <p>Sabin</p>
+                <p>{{post.user.username}} {{post.creation_date | date:'HH:mm'}}</p>
             </div>
             <div class="content">
                 <div class="action-feed">
@@ -25,5 +25,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="actions">
+        Test
     </div>
 </div>
