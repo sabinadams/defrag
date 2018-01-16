@@ -2,27 +2,25 @@
 
 @import './assets/_palette.scss';
 @import './assets/_classes.scss';
-$med-break: 800px;
-$sm-break: 500px;
+$med-break: 1000px;
+$sm-break: 700px;
 $profile-panel-width: 200px;
 $chatbar-width: 15%;
-$navbar-height: 65px;
+$navbar-height: 75px;
 $default-font-family: 'Lato',
 sans-serif;
 html {
     height: 100%;
+    
 }
 
 body {
     margin: 0;
     font-family: $default-font-family;
-    background: $primary-background;
+    background: #2a2e37;
     color: $default-font-color;
     height: 100%;
     overflow: hidden;
-     ::-webkit-scrollbar {
-        display: none;
-    }
     p {
         margin: 0;
     }

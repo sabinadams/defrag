@@ -1,38 +1,36 @@
 @import '../styles.scss';
 .site-grid {
     height: 100%;
+    width: 100%;
     @extend .flex-row;
-    .col {
-        height: 100%;
-        &.right {
-            text-align: center;
-            width: $chatbar-width;
-            min-width: 85px;
-            border-left: $thin-dark-border;
-        }
-        &.left {
-            text-align: center;
-            background-color: $darker-color;
-            width: $profile-panel-width;
-            min-width: 150px;
-            @extend .flex-column;
-        }
-        &.center {
-            flex: 1;
-            @extend .flex-column;
+    .left {
+        width: $navbar-height * 2.5;
+        @extend .flex-column;
+        background-color: #373e48;
+    }
+    .main {
+        flex: 1;
+        @extend .flex-column;
+        .site-content {
+            @extend .flex-row;
             height: 100%;
-            .mid-grid {
-                overflow: scroll;
+            .secondary-panel {
+                width: $navbar-height * 2.5;
+                @extend .flex-column;
+                background: #2c343f;
                 height: 100%;
-                @extend .flex-row;
-                .site-body-container {
-                    height: 100%;
-                    flex: 1;
-                    .primary-content {
-                        overflow: scroll;
-                        height: 100%;
-                    }
-                }
+            }
+            .center {
+                flex: 1;
+                height: 100%;
+                overflow: scroll;
+                overflow-x: hidden;
+                margin-right: -$navbar-height * 2 - 20; // Screw
+                padding-right: $navbar-height * 2 + 20; // Firefox
+            }   
+            .right {
+                width: $navbar-height * 2;
+                background-color: #373e48;
             }
         }
     }
@@ -40,6 +38,9 @@
 
 @media only screen and (max-width: $med-break) {
     .left {
+        display: none !important;
+    }
+    .secondary-panel {
         display: none !important;
     }
 }

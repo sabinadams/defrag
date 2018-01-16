@@ -9,6 +9,6 @@ import { AuthService } from "../shared/services/auth-service";
 export class HomeComponent implements OnInit{
   constructor( private _authService: AuthService) {}
   ngOnInit() {
-    this._authService.test().subscribe(console.log);
+    // this._authService.test().subscribe(console.log);
   }
 }

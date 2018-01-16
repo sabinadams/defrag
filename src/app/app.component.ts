@@ -12,5 +12,5 @@ import { Observable } from "rxjs/Observable";
 // IMPORTANT: https://www.facebook.com/midnightpulp/videos/1763726663640085/
 export class AppComponent {
   // Temporary so Sabin can build Home Page stuff while Alex is building login
-  loggedin = true;
+  loggedin = true; 
 }

@@ -1,9 +1,11 @@
+@import "../../../styles.scss";
 .timeline-container {
-    overflow: scroll;
+    padding: 20px;
     margin: auto;
-    display: flex;
-    flex-direction: column;
+    overflow: scroll;
+    @extend .flex-column;
     max-width: 700px; // Remove if extra column on homepage
+    overflow: hidden;
     .timeline-item {
         flex: 1;
     }
