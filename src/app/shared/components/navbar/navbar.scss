@@ -2,7 +2,7 @@
 .navbar-container {
     @extend .flex-row;
     flex-wrap: nowrap;
-    background-color: #2c343f;
+    background-color: $secondary-background;
     border-bottom: 1px solid #2a2e37;
     .routes {
         justify-content: flex-start;

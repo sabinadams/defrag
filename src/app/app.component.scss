@@ -4,35 +4,21 @@
     width: 100%;
     @extend .flex-row;
     .left {
-        width: $navbar-height * 2.5;
-        @extend .flex-column;
+        width: 150px;
         background-color: $light-background;
     }
     .main {
         flex: 1;
-        @extend .flex-column;
+        height: 100%;
+        max-width: calc(100% - 300px);
         .site-content {
-            @extend .flex-row;
-            height: 100%;
-            .secondary-panel {
-                width: $navbar-height * 2.5;
-                @extend .flex-column;
-                background: $secondary-background;
-                height: 100%;
-            }
-            .center {
-                flex: 1;
-                height: 100%;
-                overflow: scroll;
-                overflow-x: hidden;
-                margin-right: -$navbar-height * 1.5 - 17; // Screw
-                padding-right: $navbar-height * 1.5 + 17; // Firefox
-            }   
-            .right {
-                width: $navbar-height * 1.5;
-                background-color: $light-background;
-            }
+            height: calc(100% - 65px);
+            overflow: hidden;
         }
+    }
+    .right {
+        width: 150px;
+        background-color: $light-background;
     }
 }
 
