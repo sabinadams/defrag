@@ -15,4 +15,10 @@ export class TimelineComponent implements OnInit {
   ngOnInit() {
       this.feed_items = this._timelineService.populateFeed();     
   }
+
+  handleScroll(e) {
+    e.preventDefault();
+    let el = document.getElementById("tct");
+    el.scrollLeft += e.deltaY ? e.deltaY : e.detail * 4;
+  }
 }
