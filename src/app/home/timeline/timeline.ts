@@ -22,7 +22,7 @@ export class TimelineComponent implements OnInit {
     if ( self.innerWidth + 150 >= screen.width ) {
       e.preventDefault();
       let el = document.getElementById("tct");
-      el.scrollLeft += e.deltaY ? e.deltaY : e.detail * 10;
+      el.scrollLeft += e.deltaY ? e.deltaY : e.detail * 25;
     }
   }
 

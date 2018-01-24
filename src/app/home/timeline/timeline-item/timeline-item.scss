@@ -11,6 +11,7 @@ $profile-pic-size: 55px;
     }
     .main-container {
         width: calc(100vw - #{$side-panel-width * 3});
+        max-width: 800px;
         .item-contents {
             min-height: 80px;
             padding: 15px;
@@ -39,7 +40,7 @@ $profile-pic-size: 55px;
     .actions {
         opacity: 0;
         @extend .flex-column;
-        margin-left: -20px;
+        margin-left: -15px;
         justify-content: space-around;
         transition: opacity 300ms ease-in;
         .action {
@@ -64,9 +65,9 @@ $profile-pic-size: 55px;
 
 @media only screen and (max-width: $sm-break) {
     .main-container {
-        width: calc(100vw - 10px) !important;
+        width: 100% !important;
     }
     .timeline-item {
-        margin-left: 30px !important;
+        margin: 5px !important;
     }
 }
