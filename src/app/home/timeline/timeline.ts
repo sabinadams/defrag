@@ -9,6 +9,8 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TimelineComponent implements OnInit {
   feed_items: Observable<ITimelineItem[]>;
+  scrolling: boolean = false;
+  scrollInterval: any;
   constructor( private _timelineService: TimelineService, public el: ElementRef ) {
    
   }
@@ -17,8 +19,27 @@ export class TimelineComponent implements OnInit {
   }
 
   handleScroll(e) {
-    e.preventDefault();
-    let el = document.getElementById("tct");
-    el.scrollLeft += e.deltaY ? e.deltaY : e.detail * 4;
+    if ( self.innerWidth + 150 >= screen.width ) {
+      e.preventDefault();
+      let el = document.getElementById("tct");
+      el.scrollLeft += e.deltaY ? e.deltaY : e.detail * 10;
+    }
+  }
+
+  scrollToItem(number) {
+   document.getElementById(`timeline-item-${number}`)
+   .scrollIntoView({behavior: 'smooth',  inline: 'center'});
+  }
+
+  toggleScroll() {
+    this.scrolling = !this.scrolling;
+    if(this.scrolling) {
+      this.scrollInterval = setInterval(() => {
+        let el = document.getElementById("tct");
+        el.scrollLeft += 2;
+      }, 20);
+    } else {
+      clearInterval(this.scrollInterval);
+    }
   }
 }

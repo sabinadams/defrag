@@ -2,10 +2,10 @@
 
 @import './assets/_palette.scss';
 @import './assets/_classes.scss';
+@import './assets/_mixins.scss';
 $med-break: 1000px;
 $sm-break: 700px;
-$profile-panel-width: 200px;
-$chatbar-width: 15%;
+$side-panel-width: 150px;
 $navbar-height: 75px;
 $default-font-family: 'Lato',
 sans-serif;
