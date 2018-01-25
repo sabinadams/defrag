@@ -9,9 +9,8 @@ import { FormsModule } from "@angular/forms";
 
 // Components
 // ------------------------------------------------------------------------
-import { HomeComponent } from './home';
-import { TimelineComponent } from './timeline/timeline';
-import { TimelineItemComponent } from './timeline/timeline-item/timeline-item';
+import { TimelineComponent } from './timeline';
+import { TimelineItemComponent } from './timeline-item/timeline-item';
 
 // Modules
 // ------------------------------------------------------------------------
@@ -32,7 +31,6 @@ import { EditableDivDirective } from "../shared/directives/editable-div-directiv
 
 @NgModule({
   declarations: [
-    HomeComponent,
     TimelineComponent,
     TimelineItemComponent,
     EditableDivDirective
@@ -41,4 +39,4 @@ import { EditableDivDirective } from "../shared/directives/editable-div-directiv
   exports: [],
   providers: [TimelineService, AuthService]
 })
-export class HomeModule {}
+export class TimelineModule {}

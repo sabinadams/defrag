@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Component Imports
-import { HomeComponent } from './home/home';
+import { TimelineComponent } from './timeline/timeline';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent }
+  { path: '', component: TimelineComponent }
 ];
 
 @NgModule({

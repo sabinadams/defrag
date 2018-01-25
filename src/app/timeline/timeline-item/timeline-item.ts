@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TimelineService } from '../../shared/services/timeline-service';
+import { TimelineService } from '../shared/services/timeline-service';
 import { Observable } from 'rxjs/Observable';
-import { ITimelineItem } from "../../../shared/models/TimelineItem";
+import { ITimelineItem } from "../../shared/models/TimelineItem";
 
 @Component({
   selector: 'timeline-item',
@@ -20,10 +20,17 @@ export class TimelineItemComponent implements OnInit {
     `;
 
     this.text = this.text.substring(0, Math.floor(Math.random() * this.text.length));
+    if ( this.text.length > 200 ) {
+      this.text = this.text.substring(0, 200);
+    } else if ( this.text.length < 1 ) {
+      this.text = "Contrary to popular belief, Lorem Ipsum is not simply random text.";
+    }
   }
+
   ngOnInit() {}
 
   saveComment(e: any) {
     console.log(e);
   }
+  
 }

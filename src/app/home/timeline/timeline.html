@@ -1,6 +1,0 @@
-<div id="tct" class="timeline-container" (mousewheel)="handleScroll($event)" (DOMMouseScroll)="handleScroll($event)">
-    <timeline-item id="timeline-item-{{item.ID}}" [post]="item" *ngFor="let item of feed_items | async"></timeline-item>
-    <div class="autoscroll" (click)="toggleScroll()">
-        Auto
-    </div>
-</div>

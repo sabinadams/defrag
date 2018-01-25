@@ -1,4 +1,5 @@
-@import '../../../../styles.scss';
+@import '../../../styles.scss';
+
 $left-padding: 20px;
 $profile-pic-size: 55px;
 .timeline-item {
@@ -60,14 +61,5 @@ $profile-pic-size: 55px;
 @media only screen and (max-width: $med-break) {
     .main-container {
         width: 100% !important;
-    }
-}
-
-@media only screen and (max-width: $sm-break) {
-    .main-container {
-        width: 100% !important;
-    }
-    .timeline-item {
-        margin: 5px !important;
     }
 }

@@ -19,7 +19,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar';
 import { AlertsComponent } from './shared/components/alerts/alerts';
 // Modules
 // ------------------------------------------------------------------------
-import { HomeModule } from './home/home-module';
+import { TimelineModule } from './timeline/timeline-module';
 
 // Services
 // ------------------------------------------------------------------------
@@ -43,7 +43,7 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    HomeModule
+    TimelineModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
