@@ -1,4 +1,4 @@
-<div id="tct" class="timeline-container" (mousewheel)="handleScroll($event)" (DOMMouseScroll)="handleScroll($event)">
+<div #timeline class="timeline-container" (mousewheel)="handleScroll($event)" (DOMMouseScroll)="handleScroll($event)">
     <timeline-item 
         id="timeline-item-{{item.ID}}" 
         [post]="item" 

@@ -4,7 +4,7 @@
 @import './assets/_classes.scss';
 @import './assets/_mixins.scss';
 $med-break: 1000px;
-$sm-break: 700px;
+$sm-break: 700px; // If you change this value, also change the value in timeline.ts that dictates when to switch to vertical scroll
 $side-panel-width: 150px;
 $navbar-height: 75px;
 $default-font-family: 'Lato',
