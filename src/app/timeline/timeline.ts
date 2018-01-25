@@ -19,7 +19,8 @@ export class TimelineComponent implements OnInit {
   }
 
   handleScroll(e) {
-    if ( self.innerWidth + 150 >= screen.width ) {
+    // Number correlates to sm-break in SCSS, 17 correlates to scrollbar padding workaround width
+    if ( screen.width - 700 + 17 <= self.innerWidth ) {
       e.preventDefault();
       document.getElementById("tct").scrollLeft += e.deltaY ? e.deltaY : e.detail * 25;
     }
