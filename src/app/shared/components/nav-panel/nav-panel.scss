@@ -1,0 +1,14 @@
+@import '../../../../styles.scss';
+.navigation {
+    width: $side-panel-width;
+    background-color: $light-background;
+    @extend .flex-column;
+    justify-content: flex-start;
+    height: 100%;
+    .profile-info {
+        text-align: center;
+        img {
+            width: 100%;
+        }
+    }
+}

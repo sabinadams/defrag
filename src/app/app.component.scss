@@ -3,10 +3,6 @@
     height: 100%;
     width: 100%;
     @extend .flex-row;
-    .left {
-        width: $side-panel-width;
-        background-color: $light-background;
-    }
     .main {
         flex: 1;
         height: 100%;

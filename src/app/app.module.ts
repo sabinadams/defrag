@@ -17,6 +17,8 @@ import { ProxyInterceptor } from './shared/interceptors/proxy-interceptor';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/components/navbar/navbar';
 import { AlertsComponent } from './shared/components/alerts/alerts';
+import { NavPanelComponent } from './shared/components/nav-panel/nav-panel';
+
 // Modules
 // ------------------------------------------------------------------------
 import { TimelineModule } from './timeline/timeline-module';
@@ -36,7 +38,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent, NavbarComponent, AlertsComponent
+    AppComponent, NavbarComponent, AlertsComponent, NavPanelComponent
   ],
   imports: [
     BrowserModule,
