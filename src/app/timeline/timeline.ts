@@ -27,11 +27,6 @@ export class TimelineComponent implements OnInit {
     }
   }
   
-  scrollToItem(number) {
-   document.getElementById(`timeline-item-${number}`)
-     .scrollIntoView({ behavior: 'smooth', inline: 'center' });
-  }
-
   toggleScroll() {
     this.scrolling = !this.scrolling;
     if(this.scrolling) {

@@ -11,7 +11,7 @@ export class TimelineService extends BaseService {
 
   public populateFeed(): Observable<ITimelineItem[]> {
     let feedItems: ITimelineItem[] = [];
-    for (let i = 0; i < 25; i++ ) {
+    for (let i = 0; i < 15; i++ ) {
       setTimeout(() => {
         feedItems.push({
           ID: i,
