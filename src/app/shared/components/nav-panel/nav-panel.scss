@@ -2,6 +2,7 @@
 .navigation {
     width: $side-panel-width;
     background-color: $light-background;
+    border-right: $thin-light-border;
     @extend .flex-column;
     justify-content: flex-start;
     height: 100%;

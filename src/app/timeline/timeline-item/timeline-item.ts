@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { TimelineService } from '../shared/services/timeline-service';
 import { Observable } from 'rxjs/Observable';
+import { TimelineService } from '../shared/services/timeline-service';
 import { ITimelineItem } from "../../shared/models/TimelineItem";
 
 @Component({
