@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { TimelineService } from './shared/services/timeline-service';
 import { ITimelineItem } from './../shared/models/TimelineItem';
 import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'timeline',
   templateUrl: './timeline.html',
@@ -9,12 +10,12 @@ import { Observable } from 'rxjs/Observable';
 })
 export class TimelineComponent implements OnInit {
   feed_items: Observable<ITimelineItem[]>;
-  scrolling: boolean = false;
-  scrollInterval: any;
+  scrolling: boolean = false; // Keeps track of whether or not the timeline is scrolling
+  scrollInterval: any; // Holds the interval for scrolling
   postIDList: Array<number> = []; // Need to upload the postIDList with buildIndex() 
   @ViewChild('timeline') el: ElementRef; 
 
-  constructor( private _timelineService: TimelineService, public el: ElementRef ) {}
+  constructor( private _timelineService: TimelineService ) {}
   
   ngOnInit() {
     this.feed_items = this._timelineService.populateFeed(); 
@@ -28,8 +29,7 @@ export class TimelineComponent implements OnInit {
     }
   }
   
-
-  scrollToItem(id) {
+  scrollToItem(id: Number) {
     let item = document.getElementById(`timeline-item-${id}`);
     this.el.nativeElement.scrollTo({
       behavior: 'smooth',
@@ -37,7 +37,7 @@ export class TimelineComponent implements OnInit {
     });
   }
 
-  getScrollIndex( returnNumber ) {
+  getScrollIndex( returnNumber: Function ) {
     let index = 0;
     let feedSubscription = this.feed_items.subscribe( feed => {
       index = feed[0].ID;
@@ -50,15 +50,14 @@ export class TimelineComponent implements OnInit {
       });
     }, 
     e => console.error,
-    () => { 
-      returnNumber(index); 
-    });
+    () => { returnNumber(index); });
+
    feedSubscription.unsubscribe();
   }
 
   buildIndex(){
-    let sub = this.feed_items.subscribe( feed => {
-      feed.forEach( item => {this.postIDList.push(item.ID)})
+    let sub = this.feed_items.subscribe( feed => { 
+      feed.forEach( item => {this.postIDList.push(item.ID)}) 
     });
     sub.unsubscribe();
   }  
@@ -69,7 +68,6 @@ export class TimelineComponent implements OnInit {
     if(this.scrolling) {
         let postIndex;
         this.getScrollIndex( index => {
-          console.log(index)
           postIndex = index;
           this.scrollInterval = setInterval(() => {
             this.scrollToItem(postIndex);
