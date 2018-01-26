@@ -26,6 +26,11 @@ export class TimelineComponent implements OnInit {
       this.el.nativeElement.scrollLeft += e.deltaY ? e.deltaY : e.detail * 25;
     }
   }
+  
+  scrollToItem(number) {
+   document.getElementById(`timeline-item-${number}`)
+     .scrollIntoView({ behavior: 'smooth', inline: 'center' });
+  }
 
   toggleScroll() {
     this.scrolling = !this.scrolling;

@@ -2,23 +2,18 @@
     <div class="main-container">
         <div class="item-contents">
             <div class="profile-picture-container">
-                <img class="profile-picture" src="https://pbs.twimg.com/profile_images/952487032613322752/KCur8iit_400x400.jpg">
+                <img class="profile-picture" src="http://placehold.it/500x500">
             </div>
             <div class="content-container">
                 <div class="details">
                     <p><span class="username">{{post.user.username}}</span> @{{post.user.tag}} - {{post.creation_date | date:'HH:mm'}}</p>
                 </div>
-                <div class="content">
+                <div class="content" (click)="scrollToMe()">
                     <p>
-                        {{text}}    
+                        {{text}}
                     </p>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="actions">
-        <div class="action"></div>
-        <div class="action"></div>
-        <div class="action"></div>
     </div>
 </div>

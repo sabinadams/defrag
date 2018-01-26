@@ -1,23 +1,21 @@
 @import '../../../styles.scss';
-
 $left-padding: 20px;
 $profile-pic-size: 55px;
 .timeline-item {
     @extend .flex-row;
-    margin: 5px;
-    &:hover {
-        .actions {
-            opacity: 1;
-        }
-    }
+    height: 100%;
+    overflow: hidden;
+    margin: 0 10px;
     .main-container {
-        width: calc(100vw - #{$side-panel-width * 3});
+        position: relative;
+        width: auto;
         max-width: 800px;
         .item-contents {
-            min-height: 80px;
+            height: 100%;
             padding: 15px;
-            background: $secondary-background;
             @extend .flex-row;
+            // justify-content: center;
+            align-items: center;
             .profile-picture-container {
                 background: transparent;
                 .profile-picture {
@@ -27,32 +25,17 @@ $profile-pic-size: 55px;
             }
             .content-container {
                 @extend .flex-column;
+                justify-content: center;
                 height: 100%;
+                min-width: 350px;
                 padding-left: 25px;
+                width: auto;
                 .details {
                     .username {
                         font-size: 16px;
                         font-weight: 800;
                     }
                 }
-            }
-        }
-    }
-    .actions {
-        opacity: 0;
-        @extend .flex-column;
-        margin-left: -15px;
-        justify-content: space-around;
-        transition: opacity 300ms ease-in;
-        .action {
-            height: 30px;
-            width: 30px;
-            border-radius: 100%;
-            background-color: $light-highlight;
-            opacity: 0.1;
-            transition: opacity 300ms ease-in;
-            &:hover {
-                opacity: 1;
             }
         }
     }

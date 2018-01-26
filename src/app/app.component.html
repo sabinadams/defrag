@@ -1,15 +1,13 @@
 <div class="site-grid">
-    <div class="site-grid">
-        <nav-panel></nav-panel>
-        <div class="main">
-            <navbar *ngIf="loggedin"></navbar>
-            <div class="site-content">
-                <router-outlet></router-outlet>
-            </div>
+    <nav-panel></nav-panel>
+    <div class="main">
+        <navbar *ngIf="loggedin"></navbar>
+        <div class="site-content">
+            <router-outlet></router-outlet>
         </div>
-        <div class="right">
-            Test
-        </div>
+    </div>
+    <div class="right">
+        Test
     </div>
 </div>
 <alerts></alerts>

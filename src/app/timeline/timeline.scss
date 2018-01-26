@@ -7,12 +7,17 @@
     padding-bottom: 17px;
     margin-right: -17px;
     align-items: center;
+    timeline-item {
+        height: 100%;
+    }
 }
 
 @media only screen and (max-width: $med-break) {
     .timeline-container {
         flex-direction: column;
-        timeline-item { width: 100%; }
+        timeline-item {
+            width: 100%;
+        }
     }
 }
 
@@ -41,6 +46,6 @@
         &.active {
             background: $light-background;
             border: none;
-        }   
+        }
     }
 }

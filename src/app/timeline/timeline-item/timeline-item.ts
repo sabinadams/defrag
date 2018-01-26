@@ -33,4 +33,9 @@ export class TimelineItemComponent implements OnInit {
     console.log(e);
   }
   
+  scrollToMe() {
+    document.getElementById(`timeline-item-${this.post.ID}`)
+      .scrollIntoView({ behavior: 'smooth'});
+  }
+
 }
