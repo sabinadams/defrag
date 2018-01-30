@@ -79,7 +79,7 @@ export class TimelineComponent implements OnInit {
               this.scrolling = !this.scrolling;
               clearInterval(this.scrollInterval);  
             }
-          }, 1500);
+          }, 5000);
         });
     } else {
       clearInterval(this.scrollInterval);

@@ -23,7 +23,7 @@
 
 .bottom-buttons {
     position: fixed;
-    bottom: 25px;
+    top: 25px;
     right: $side-panel-width + 25px;
     @extend .flex-row;
     .bottom-button {

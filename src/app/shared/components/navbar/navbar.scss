@@ -3,7 +3,7 @@
     @extend .flex-row;
     flex-wrap: nowrap;
     background-color: $secondary-background;
-    border-bottom: $thin-light-border;
+    border-top: $thin-light-border;
     .routes {
         justify-content: flex-start;
         @extend .flex-row;

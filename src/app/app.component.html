@@ -1,10 +1,10 @@
 <div class="site-grid">
     <nav-panel class="left"></nav-panel>
     <div class="main">
-        <navbar *ngIf="loggedin"></navbar>
         <div class="site-content">
             <router-outlet></router-outlet>
         </div>
+        <navbar *ngIf="loggedin"></navbar>
     </div>
     <div class="right">
         Test

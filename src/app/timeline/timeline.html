@@ -1,5 +1,5 @@
 <div id="tct" #timeline class="timeline-container" (mousewheel)="handleScroll($event)" (DOMMouseScroll)="handleScroll($event)">
-    <timeline-item id="timeline-item-{{item.ID}}" [post]="item" *ngFor="let item of feed_items | async">
+    <timeline-item id="timeline-item-{{item.ID}}" [index]="i" [post]="item" *ngFor="let item of feed_items | async; let i = index">
     </timeline-item>
 
     <div class="bottom-buttons">

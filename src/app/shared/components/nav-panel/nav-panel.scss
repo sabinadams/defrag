@@ -7,9 +7,37 @@
     justify-content: flex-start;
     height: 100%;
     .profile-info {
+        position: relative;
+        padding: 20px 5px;
         text-align: center;
+        .toggle-view {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            font-size: 20px;
+        }
         img {
-            width: 100%;
+            width: 60%;
+            border-radius: 50%;
+        }
+    }
+    .horizontal-options {
+        @extend .flex-row;
+        background-color: $secondary-background;
+        justify-content: space-around;
+        padding: 5px;
+        .option {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 35px;
+            background-color: $light-background;
+            width: 35px;
+            border-radius: 50%;
+            &:hover {
+                transition: background-color 300ms ease-in;
+                background-color: darken($light-background, 2);
+            }
         }
     }
 }
