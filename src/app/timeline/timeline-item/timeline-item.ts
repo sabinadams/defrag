@@ -10,7 +10,8 @@ import { ITimelineItem } from "../../shared/models/TimelineItem";
 })
 export class TimelineItemComponent implements OnInit {
   @Input() post: ITimelineItem;
-  @Input() index: number;
+  @Input() last: boolean;
+  @Input() first: boolean;
   text: String;
   constructor( private _timelineService: TimelineService ) {
    
@@ -39,9 +40,8 @@ export class TimelineItemComponent implements OnInit {
   scrollToMe() {
     let el = document.getElementById(`timeline-item-${this.post.ID}`);
     let tct = document.getElementById('tct');
-
-    if ( tct.scrollLeft == 0 && this.index == 0) return this.openPost();
-
+  console.log(tct.scrollLeft, el.offsetLeft)
+    if ( (tct.scrollLeft == 0 && this.first) || this.last) return this.openPost();
     if (Math.floor(tct.scrollLeft + 120 + (el.offsetLeft - tct.scrollLeft) - (tct.clientWidth / 2)) != Math.floor(tct.scrollLeft) ) {
       tct.scrollTo({
         behavior: 'smooth',
@@ -54,14 +54,5 @@ export class TimelineItemComponent implements OnInit {
 
   openPost() {
     alert(`Opening post: ${this.post.ID}`);
-  }
-}
-
-
-var cases = {
-  desperado: {
-    cloth_mask_leopard: {
-
-    }
   }
 }
