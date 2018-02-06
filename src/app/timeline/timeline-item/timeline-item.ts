@@ -12,10 +12,9 @@ export class TimelineItemComponent implements OnInit {
   @Input() post: ITimelineItem;
   @Input() last: boolean;
   @Input() first: boolean;
+  opened: string = 'closed'; // temp to show toggler
   text: String;
-  constructor( private _timelineService: TimelineService ) {
-   
-  }
+  constructor( private _timelineService: TimelineService ) {}
 
   ngOnInit() {
     this.text = `
@@ -40,19 +39,19 @@ export class TimelineItemComponent implements OnInit {
   scrollToMe() {
     let el = document.getElementById(`timeline-item-${this.post.ID}`);
     let tct = document.getElementById('tct');
-  console.log(tct.scrollLeft, el.offsetLeft)
-    if ( (tct.scrollLeft == 0 && this.first) || this.last) return this.openPost();
-    if (Math.floor(tct.scrollLeft + 120 + (el.offsetLeft - tct.scrollLeft) - (tct.clientWidth / 2)) != Math.floor(tct.scrollLeft) ) {
+    // if (Math.floor(tct.scrollLeft + 120 + (el.offsetLeft - tct.scrollLeft) - (tct.clientWidth / 2)) != Math.floor(tct.scrollLeft) ) {
       tct.scrollTo({
         behavior: 'smooth',
         left: tct.scrollLeft + 120 + (el.offsetLeft - tct.scrollLeft) - (tct.clientWidth / 2)
       });
-    } else {
       this.openPost();
-    }
+    // } else {
+    // }
+    // if ((tct.scrollLeft == 0 && this.first) || this.last) return this.openPost()
   }
 
   openPost() {
-    alert(`Opening post: ${this.post.ID}`);
+    this.opened = this.opened == 'open' ? 'closed' : 'open';
   }
+
 }
