@@ -1,7 +1,8 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { TimelineService } from './shared/services/timeline-service';
 import { ITimelineItem } from './../shared/models/TimelineItem';
 import { Observable } from 'rxjs/Observable';
+import { TimelineItemComponent } from './timeline-item/timeline-item';
 
 @Component({
   selector: 'timeline',
@@ -9,78 +10,66 @@ import { Observable } from 'rxjs/Observable';
   styleUrls: ['./timeline.scss']
 })
 export class TimelineComponent implements OnInit {
-  feed_items: Observable<ITimelineItem[]>;
+  feed_items: ITimelineItem[] = []; // Data container for all the feed items
   scrolling: boolean = false; // Keeps track of whether or not the timeline is scrolling
   scrollInterval: any; // Holds the interval for scrolling
-  postIDList: Array<number> = []; // Need to upload the postIDList with buildIndex() 
-  @ViewChild('timeline') el: ElementRef; 
+  @ViewChild('timeline') el: ElementRef; // Reference to the timeline DOM object
+  @ViewChildren('posts') postList: QueryList<TimelineItemComponent>; // Keeps track of the timeline's children elements and watches for changes
+  childElements: Array<TimelineItemComponent> = []; // Holds the actual post element references so we can use values/functions
+  scrollIndex: number; // Keeps track of which element we're at when auto scrolling
 
   constructor( private _timelineService: TimelineService ) {}
   
   ngOnInit() {
-    this.feed_items = this._timelineService.populateFeed(); 
+    this._timelineService.populateFeed().subscribe(res => {
+      this.feed_items.push(...res);
+    }); 
+  }
+  
+  ngAfterViewInit() {
+    // Initializes the postList variable
+    this.postList.forEach( item => this.childElements.push(item));
+    // Watches for changes and updates the postList variable with additions
+    this.postList.changes.subscribe(() => {
+        this.childElements = this.postList.toArray();
+    });
   }
 
-  handleScroll(e) {
-    // Number correlates to both side panel widths in SCSS, 17 correlates to scrollbar padding workaround width
-    if (this.el.nativeElement.clientWidth - 17 + 300 == window.innerWidth ) {
-      e.preventDefault();
-      this.el.nativeElement.scrollLeft += e.deltaY ? e.deltaY : e.detail * 25;
+  // Finds out which post is closest to the middle of the visible area of the timeline
+  // Gets run once when you hit the toggler button. Should probably be changed
+  getScrollIndex() {
+    let finalindex = 0;
+    this.feed_items.some( (post, index) => {
+      finalindex = index;
+      let item = document.getElementById(`timeline-item-${post.ID}`);
+      return (item.offsetLeft - this.el.nativeElement.scrollLeft) - (this.el.nativeElement.clientWidth / 2) > 0
+    });
+    return finalindex;
+  }
+  
+
+  clickPost(i) {
+    // Should also open the post
+    this.scrollIndex = i;
+    if ( this.scrolling) {
+      this.scrolling = false;
+      clearInterval(this.scrollInterval);
     }
   }
-  
-  scrollToItem(id: Number) {
-    let item = document.getElementById(`timeline-item-${id}`);
-    this.el.nativeElement.scrollTo({
-      behavior: 'smooth',
-      left: this.el.nativeElement.scrollLeft + 120 + (item.offsetLeft - this.el.nativeElement.scrollLeft) - (this.el.nativeElement.clientWidth / 2)
-    });
-  }
 
-  getScrollIndex( returnNumber: Function ) {
-    let index = 0;
-    let feedSubscription = this.feed_items.subscribe( feed => {
-      index = feed[0].ID;
-      feed.some( post => {
-        let item = document.getElementById(`timeline-item-${post.ID}`);
-        if ( (item.offsetLeft - this.el.nativeElement.scrollLeft) - (this.el.nativeElement.clientWidth / 2) > 0 ) {
-          index = post.ID;
-          return true;
-        }
-      });
-    }, 
-    e => console.error,
-    () => { returnNumber(index); });
-
-   feedSubscription.unsubscribe();
-  }
-
-  buildIndex(){
-    let sub = this.feed_items.subscribe( feed => { 
-      feed.forEach( item => {this.postIDList.push(item.ID)}) 
-    });
-    sub.unsubscribe();
-  }  
-  
   toggleScroll() {
-    this.buildIndex();
     this.scrolling = !this.scrolling;
-    if(this.scrolling) {
-        let postIndex;
-        this.getScrollIndex( index => {
-          postIndex = index;
-          this.scrollInterval = setInterval(() => {
-            this.scrollToItem(postIndex);
-            if ( this.postIDList[this.postIDList.indexOf(postIndex) + 1] ) {
-              postIndex = this.postIDList[this.postIDList.indexOf(postIndex) + 1];
-            } else {
-              // Or load more posts. 
-              // Need to upload the postIDList with buildIndex()
-              this.scrolling = !this.scrolling;
-              clearInterval(this.scrollInterval);  
-            }
-          }, 5000);
-        });
+    if( this.scrolling ) {
+      this.scrollIndex = this.getScrollIndex();
+      this.scrollInterval = setInterval(() => {
+        this.childElements[this.scrollIndex].scrollToMe(true);
+        if ( !this.childElements[this.scrollIndex + 1] ) {
+          // Or load more posts. 
+          this.scrolling = !this.scrolling;
+          clearInterval( this.scrollInterval );  
+        }
+        this.scrollIndex++;
+      }, 5000);
     } else {
       clearInterval(this.scrollInterval);
     }

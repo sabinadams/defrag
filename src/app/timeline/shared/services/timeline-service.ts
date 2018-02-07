@@ -9,10 +9,9 @@ import { Observable } from 'rxjs/Observable';
 export class TimelineService extends BaseService {
   constructor(private http: HttpClient ) { super(); }
 
-  public populateFeed(): Observable<ITimelineItem[]> {
+  public populateFeed(index: number = 0): Observable<ITimelineItem[]> {
     let feedItems: ITimelineItem[] = [];
-    for (let i = 0; i < 15; i++ ) {
-      setTimeout(() => {
+    for (let i = index; i < index + 200; i++ ) {
         feedItems.push({
           ID: i,
           text: "This is a test post",
@@ -38,7 +37,6 @@ export class TimelineService extends BaseService {
             ID: 1
           }
         });
-      }, 900);
     }
     return Observable.of(feedItems);
   }

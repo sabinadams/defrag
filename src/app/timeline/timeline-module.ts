@@ -26,6 +26,8 @@ import { AppRoutingModule } from '../app-routing.module';
 
 // Directives
 import { EditableDivDirective } from "../shared/directives/editable-div-directive";
+import { SideScrollerDirective } from '../shared/directives/side-scroller-directive';
+
 // Others
 // ------------------------------------------------------------------------
 
@@ -33,7 +35,8 @@ import { EditableDivDirective } from "../shared/directives/editable-div-directiv
   declarations: [
     TimelineComponent,
     TimelineItemComponent,
-    EditableDivDirective
+    EditableDivDirective,
+    SideScrollerDirective
   ],
   imports: [BrowserModule, FormsModule],
   exports: [],

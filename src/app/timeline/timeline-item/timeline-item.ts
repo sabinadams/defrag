@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { TimelineService } from '../shared/services/timeline-service';
 import { ITimelineItem } from "../../shared/models/TimelineItem";
@@ -9,49 +9,25 @@ import { ITimelineItem } from "../../shared/models/TimelineItem";
   styleUrls: ['./timeline-item.scss']
 })
 export class TimelineItemComponent implements OnInit {
-  @Input() post: ITimelineItem;
-  @Input() last: boolean;
-  @Input() first: boolean;
-  opened: string = 'closed'; // temp to show toggler
-  text: String;
-  constructor( private _timelineService: TimelineService ) {}
+  @Input() post: ITimelineItem; // The details of the post provided by the parent
+  @Input() container: any; // A reference to this post's container
+  text: String; // Temp variable to test different text sizes
+
+  // A function that scrolls the parent to this post
+  scrollToMe = (auto: boolean = false) => {
+    this.container.nativeElement.scrollTo({
+      behavior: 'smooth',
+      left: this.container.nativeElement.scrollLeft + 120 
+        + (this.el.nativeElement.offsetLeft - this.container.nativeElement.scrollLeft) 
+        - (this.container.nativeElement.clientWidth / 2)
+    });
+  }
+
+  constructor( private _timelineService: TimelineService, public el: ElementRef ) {}
 
   ngOnInit() {
-    this.text = `
-      ${this.post.ID}: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up
-      one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33
-      of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor
-      sit amet..", comes from a line in section 1.10.32.
-    `;
-  
-    this.text = this.text.substring(0, Math.floor(Math.random() * this.text.length));
-    if ( this.text.length > 200 ) {
-      this.text = this.text.substring(0, 200);
-    } else if ( this.text.length < 1 ) {
-      this.text = "Contrary to popular belief, Lorem Ipsum is not simply random text.";
-    }
-  }
-
-  saveComment(e: any) {
-    console.log(e);
-  }
-  
-  scrollToMe() {
-    let el = document.getElementById(`timeline-item-${this.post.ID}`);
-    let tct = document.getElementById('tct');
-    // if (Math.floor(tct.scrollLeft + 120 + (el.offsetLeft - tct.scrollLeft) - (tct.clientWidth / 2)) != Math.floor(tct.scrollLeft) ) {
-      tct.scrollTo({
-        behavior: 'smooth',
-        left: tct.scrollLeft + 120 + (el.offsetLeft - tct.scrollLeft) - (tct.clientWidth / 2)
-      });
-      this.openPost();
-    // } else {
-    // }
-    // if ((tct.scrollLeft == 0 && this.first) || this.last) return this.openPost()
-  }
-
-  openPost() {
-    this.opened = this.opened == 'open' ? 'closed' : 'open';
-  }
+    this.text = `${this.post.ID}: Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up
+      one of the more obscure Latin words, consectetur`;
+  }  
 
 }

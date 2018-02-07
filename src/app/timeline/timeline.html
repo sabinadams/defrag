@@ -1,7 +1,5 @@
-<div id="tct" #timeline class="timeline-container" (mousewheel)="handleScroll($event)" (DOMMouseScroll)="handleScroll($event)">
-    <timeline-item id="timeline-item-{{item.ID}}" [first]="first" [last]="last" [post]="item" *ngFor="let item of feed_items | async; let i = index; let first = first; let last = last;">
-    </timeline-item>
-
+<div #timeline sideScroller class="timeline-container">
+    <timeline-item #posts id="timeline-item-{{item.ID}}" [container]="el" [post]="item" *ngFor="let item of feed_items; let i = index;" (click)="clickPost(i)"></timeline-item>
     <div class="bottom-buttons">
         <div class="bottom-button autoscroll" (click)="toggleScroll()"> Auto </div>
         <div class="bottom-button newpost"> Post </div>
