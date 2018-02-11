@@ -1,7 +1,6 @@
 <div class="navbar-container">
-    <!-- <input placeholder="This is a test"> -->
     <div class="routes">
-        <div *ngFor="let route of routes" class="nav-option" [ngClass]="currRoute == '/' + route.location ? 'active' : ''">
+        <div *ngFor="let route of routes" class="nav-option" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
             <p routerLink="{{route.location}}">{{route.label.substring(0,1)}} </p>
         </div>
     </div>

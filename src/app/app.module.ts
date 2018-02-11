@@ -22,6 +22,7 @@ import { NavPanelComponent } from './shared/components/nav-panel/nav-panel';
 // Modules
 // ------------------------------------------------------------------------
 import { TimelineModule } from './timeline/timeline-module';
+import { ProfileModule } from './profile/profile-module';
 
 // Services
 // ------------------------------------------------------------------------
@@ -45,7 +46,8 @@ import { AppRoutingModule } from './app-routing.module';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    TimelineModule
+    TimelineModule,
+    ProfileModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

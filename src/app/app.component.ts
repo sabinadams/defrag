@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: "gamr-root",
+  selector: "defrag-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"]
 })

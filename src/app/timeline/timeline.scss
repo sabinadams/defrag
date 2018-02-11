@@ -12,15 +12,15 @@
     }
 }
 
-@media only screen and (max-width: $med-break) {
-    .timeline-container {
-        flex-direction: column;
-        timeline-item {
-            width: 100%;
-        }
-    }
-}
-
+// Turns the timeline into vertical mode on med-break size
+// @media only screen and (max-width: $med-break) {
+//     .timeline-container {
+//         flex-direction: column;
+//         timeline-item {
+//             width: 100%;
+//         }
+//     }
+// }
 .bottom-buttons {
     position: fixed;
     top: 25px;

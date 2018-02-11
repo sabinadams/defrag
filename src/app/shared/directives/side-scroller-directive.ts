@@ -20,10 +20,9 @@ export class SideScrollerDirective {
     }
 
     handleScroll(e) {
+        // This can be changed to not scroll sideways with a flag or something
         // Number correlates to both side panel widths in SCSS, 17 correlates to scrollbar padding workaround width
-        if (this.el.nativeElement.clientWidth - 17 + 300 == window.innerWidth) {
-            e.preventDefault();
-            this.el.nativeElement.scrollLeft += e.deltaY ? e.deltaY : e.detail * 20;
-        }
+        e.preventDefault();
+        this.el.nativeElement.scrollLeft += e.deltaY ? e.deltaY : e.detail * 20;
     }
 }

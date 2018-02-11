@@ -11,7 +11,7 @@ export class NavbarComponent {
     showTop = true;
     routes = [
         { label: 'Home', location: '' },
-        { label: 'Discover', location: 'discover' },
+        { label: 'P', location: 'profile' },
         { label: 'News', location: 'games' },
         { label: 'Interact', location: 'shop' }
     ];

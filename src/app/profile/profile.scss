@@ -1,0 +1,12 @@
+@import '../../styles.scss';
+.profile-container {
+    @extend .flex-column;
+    height: 100%;
+    .top,
+    .bottom {
+        flex: 1;
+    }
+    .bottom {
+        background: red;
+    }
+}

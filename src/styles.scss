@@ -47,3 +47,7 @@ body {
         outline-width: 0 !important;
     }
 }
+
+:focus {
+    outline: none;
+}
