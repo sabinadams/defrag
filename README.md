@@ -2,6 +2,12 @@
 
 Let's defragment the gaming community! Our initial goal: Provide a functional social media for the community we know and love. Needs to function as a usable social platform to be a minimum viable product. 
 
+# Prerequisites
+
+Node/NPM: https://nodejs.org/en/
+
+Angular CLI: `npm install -g @angular/cli`
+
 ## Front-End Stack
 
 ![Angular Logo](https://angular.io/assets/images/logos/angular/angular.png)
